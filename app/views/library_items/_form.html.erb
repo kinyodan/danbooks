@@ -1,10 +1,20 @@
-<%= form_with(model: library_item, local: false) do |form| %>
-  <%= form.hidden_field :library_id , value: my_library.id %>
-  <%= form.hidden_field :book_title, value: book['title'] %>
-  <%= form.hidden_field :book_title_encoded, value: book['book_title_encoded'] %>
-  <%= form.hidden_field :list_name_encoded, value: list_name_encoded %>
-  Book title <%= book['title'] %>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <%= form_with(model: library_item, local: false) do |form| %>
+    <%= form.hidden_field :library_id , value: my_library.id %>
+    <%= form.hidden_field :book_title, value: book['title'] %>
+    <%= form.hidden_field :book_image, value: book['book_image'] %>
+    <%= form.hidden_field :book_title_encoded, value: book['book_title_encoded'] %>
+    <%= form.hidden_field :list_name_encoded, value: list_name_encoded %>
+    <section class="card-wrapper">
+      <img class="w-20 h-20 object-cover rounded-full mr-4" src="<%= book['book_image'] %>" alt="" />
+      <div >
+        <p class="">
+            <%= book['title'] %>
+        </p>
+        <p></p>
+      </div>
+    </section>
+    
+    <div class="recommendations-spacer-wrapper">
+      <%= form.submit "Add to library" , class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>

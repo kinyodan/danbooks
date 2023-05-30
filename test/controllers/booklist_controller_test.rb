@@ -9,7 +9,7 @@ class BooklistControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get booklist_show_url
+    get booklist_url
     assert_response :success
   end
 end

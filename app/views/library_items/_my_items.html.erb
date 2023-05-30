@@ -1,8 +1,13 @@
-<%= my_library_items.each do |library_item| %>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+<hr>
+<h4>Library Items </h4>
+<% my_library_items.each do |library_item| %>
+  <section class="card-wrapper">
+    <img class="w-20 h-20 object-cover rounded-full mr-4" src="<%= library_item.book_image %>" alt="" />
+    <div >
+      <p class="">
+          <%= library_item.book_title %>
+      </p>
+      <p></p>
+    </div>
+  </section>
 <% end %>

@@ -29,8 +29,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-Mars rover challenge done in Ruby on rails 
+Ruby on rails Application utilizing the new york times developers API
 
 <!-- GETTING STARTED -->
 ## Getting Started

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :library do
-    user_token_id { 'MyString' }
-    library_name { 'MyString' }
+    user_token_id { 'R2ugYwFLFRozQA==' }
+    library_name { 'MY library' }
   end
 end

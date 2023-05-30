@@ -25,7 +25,7 @@
         <div class="product-color-selector">
             <span>ISBNs: <%= @book['primary_isbn10'] %>, <%= @book['primary_isbn13'] %></span></br>
             <div class=" buy-links recommendations-spacer-wrapper">
-            <strong>Buy links</strong>
+            <strong>Buy links</strong></br>
             <% @book['buy_links'].each do |link| %>
                <%= link_to link['url'] do %> 
                  <span> <%= link['name'] %></span></br>
@@ -36,7 +36,11 @@
         </div>
         <% if @my_library %>
         <button class="product-button btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#libraryDrawer" aria-controls="libraryDrawer">
-            Add to my Library
+            <% if checked_in_library_helper(@my_library_items, @book) %>
+               View My library
+            <% else %>   
+               Add to my Library
+            <% end %>
         </button>
         <% end %>
 
@@ -67,11 +71,13 @@
 <% if @my_library %>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="libraryDrawer" aria-labelledby="libraryDrawerLabel">
       <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">libraryDrawer right <%= @my_library.id %></h5>
+        <h4 id="offcanvasRightLabel">library</h4>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <%= render "library_items/form", library_item: @library_item , my_library: @my_library, book: @book, list_name_encoded: params[:list_name_encoded] %>
+        <% unless checked_in_library_helper(@my_library_items, @book) %>
+            <%= render "library_items/form", library_item: @library_item , my_library: @my_library, book: @book, list_name_encoded: params[:list_name_encoded] %>
+        <% end %>
         <%= render "library_items/my_items", my_library_items: @my_library_items %>
       </div>
     </div>

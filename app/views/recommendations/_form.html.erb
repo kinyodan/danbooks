@@ -1,0 +1,16 @@
+<%= form_with(model: recommendation) do |form| %>
+  <%= form.hidden_field :user_token_id, value: "" %>
+  <%= form.hidden_field :book_title, value: book["book_title"] %>
+  <%= form.hidden_field :book_title_encoded, value: sluggify_string_helper(book['title']) %>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <%= form.text_field :email_list , class:"form-control" ,placeholder: "Enter email" %>
+  </div>
+  <div class="input-group">
+     <%= form.text_area :messege, size: "40x10", class:"form-control" ,"aria-label": "With textarea" %>
+  </div>
+
+  <div class="recommendations-spacer-wrapper">
+    <%= form.submit "send recommendation" , class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

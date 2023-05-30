@@ -1,0 +1,10 @@
+<%= form_with(model: review) do |form| %>
+  <%= form.hidden_field :book_title, value: book['title'] %>
+  <%= form.hidden_field :book_title_encoded, value: sluggify_string_helper(book['title']) %>
+  <%= form.hidden_field :user_token_id , value: request.cookies["user_token"] %>
+  <%= form.text_area :review , class:"form-control" , size: "40x8" %>
+  
+  <div class="recommendations-spacer-wrapper">
+    <%= form.submit "Submit Review" , class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<%= params[:list_name_encoded] %>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<%= render "booklist/books_list", listed_books: @listed_books, list_name_encoded: params[:list_name_encoded] %>

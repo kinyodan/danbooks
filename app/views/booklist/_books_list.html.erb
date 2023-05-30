@@ -1,0 +1,30 @@
+<ul class="mystyle-products">
+    <% if listed_books %>
+        <% listed_books.each_with_index do |book,index| %>
+        <li class="product">
+            <a href="<%= book_path(book_title: book['title'],list_name_encoded: params[:list_name_encoded] , item_index: index) %>">
+                <span class="onsale">Sale!</span>
+                <img alt="" class="attachment-shop_catalog " src="<%= book['book_image'] %>" Width="<%= book['book_image_width'].to_i %>" height="<%= book['book_image_height'].to_i %>" />
+                <h3><%= book['title'] %></h3>
+                <h3><%= book['author'] %></h3>
+                <small>
+                    ISBNS: <%= book['primary_isbn10'] %> &nbsp;, <%= book['primary_isbn13'] %>
+                </small><br>
+                <span class="price">
+                    <del> <span class="amount">399.000 ₫</span> </del>
+                    <ins> <span class="amount">269.000 ₫</span> </ins>
+                    <span class="sale-tag sale-tag-square">-33%</span>
+                </span>
+            </a>
+            <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+                Mua ngay
+            </a>
+            <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View">
+                <i class="ion ion-ios-move"></i>
+            </a>
+         </li>
+        <% end %>
+        <%= render "booklist/book_modal" %>
+    <% end %>
+</ul>
+

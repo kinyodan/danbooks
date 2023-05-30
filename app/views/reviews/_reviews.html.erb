@@ -1,0 +1,31 @@
+<main class="hotel-view">
+    <div class="detail">
+      <div class="user-reviews recommendations-spacer-wrapper">
+        <hr>
+        <h4 class="product-title">Reviews</h4>
+        <div class="mb-3">
+          <% if request.cookies["user_token"] %>
+            <label for="exampleFormControlTextarea1" class="form-label">Add a reveiw for <strong><%= @book['title'] %></strong></label>
+            <%= render "reviews/form" ,review: review ,book: book, list_name_encoded: params[:list_name_encoded]%>
+          <% end %>
+        </div>
+        <% if @reviews %>
+          <% @reviews.each do |review| %>
+            <figure class="review">
+              <blockqoute class="review__text">
+                <%= review.review %>
+              </blockqoute>
+              <figcaption class="review__user">
+                <img src="https://res.cloudinary.com/dsidgjfin/image/upload/v1537049730/user-1_sdkbww.jpg" alt="user-1" class="review__photo">
+                <div class="review__user-box">
+                  <small><p class="">Anonymous</p></small>
+                  <p class="review__user-date"><%= review.created_at %></p>
+                </div>
+                <div class="review__rating"></div>
+              </figcaption>
+            </figure> 
+          <% end %> 
+        <% end %>
+      </div>
+  </div>
+</main>

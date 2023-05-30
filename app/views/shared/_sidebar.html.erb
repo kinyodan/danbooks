@@ -1,0 +1,29 @@
+  <nav id="sidebar">  
+    <div class="sidebar-header">  
+      <h3></h3>  
+    </div>  
+    <ul class="list-unstyled components"> 
+      <h3>&nbsp;Book Listings</h3>
+      <hr>
+      <% @booklist.each do |booklist| %> 
+      <li > 
+        <%= link_to booklist_path(list_name_encoded: booklist['list_name_encoded']), class:"dropdown-toggle","aria-expanded": false do %>
+          <%= booklist['display_name'] %>
+        <% end %>
+      </li>
+      <% end %>
+
+      <li > 
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">...</a>
+         <ul class="collapse list-unstyled" id="homeSubmenu">  
+          <li>  <a href="#">Dashboard1</a> </li> 
+          <li><a href="#">Dashboard2</a></li> 
+          <li><a href="#">Dashboard3</a></li> 
+        </ul> 
+      </li> 
+ </nav>  
+
+
+
+
+

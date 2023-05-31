@@ -75,15 +75,19 @@ To run test you need to have the following installed
    ```sh
    bundle install 
    ```
-1. Run Migrations 
+2. Run Migrations 
    ```sh
    rake db:migrate 
    ```
-1. to run test simply run below command on the command line 
+3. to run test run below commands separately on the command line so as to run the full set of tests for full test coverage
    ```sh
    rspec 
    ```
-  (if all is well it should be done and running )
+   ```sh
+   rails test 
+   ```
+
+(if all is well it should be done and running )
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -37,7 +37,7 @@ Ruby on rails Application utilizing the new york times developers API
 This is are instructions on setting up your project locally.
 To get a local copy up and running follow these simple steps.
 
-Kindly read the "Task Documentation.pdf" file present at the  root folder,
+Kindly read the "Task Documentation.pdf" file present at the  root folder of this repository,
 to get a good view of everything.
 
 ### Prerequisites

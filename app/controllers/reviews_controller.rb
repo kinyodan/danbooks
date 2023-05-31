@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to request.referer, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html {  redirect_to request.referer , status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +43,10 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to review_url(@review), notice: 'Review was successfully updated.' }
+        format.html { redirect_to request.referer, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html {  redirect_to request.referer , status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to request.referer, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,6 @@ class ReviewsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def review_params
-    params.require(:review).permit(:book_title, :book_title_encoded, :review, :user_token_id)
+    params.require(:review).permit(:book_title, :book_title_encoded, :review, :user_token_id, :list_name_encoded)
   end
 end

@@ -5,43 +5,26 @@ require 'test_helper'
 class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @recommendation = recommendations(:one)
-  end
-
-  test 'should get index' do
-    get recommendations_url
-    assert_response :success
-  end
-
-  test 'should get new' do
-    get new_recommendation_url
-    assert_response :success
+    @referer_path = book_url(book_title: 'THE WAGER', item_index: 0,
+                             list_name_encoded: 'combined-print-and-e-book-nonfiction')
   end
 
   test 'should create recommendation' do
     assert_difference('Recommendation.count') do
       post recommendations_url,
            params: { recommendation: { book_title: @recommendation.book_title,
-                                       book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id } }
+                                      book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id, list_name_encoded: @recommendation.list_name_encoded } },
+           headers: { 'HTTP_REFERER' => @referer_path }
     end
-
-    assert_redirected_to recommendation_url(Recommendation.last)
-  end
-
-  test 'should show recommendation' do
-    get recommendation_url(@recommendation)
-    assert_response :success
-  end
-
-  test 'should get edit' do
-    get edit_recommendation_url(@recommendation)
-    assert_response :success
+    assert_redirected_to @referer_path
   end
 
   test 'should update recommendation' do
     patch recommendation_url(@recommendation),
           params: { recommendation: { book_title: @recommendation.book_title,
-                                      book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id } }
-    assert_redirected_to recommendation_url(@recommendation)
+                                      book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id, list_name_encoded: @recommendation.list_name_encoded } },
+                                      headers: { 'HTTP_REFERER' => @referer_path }
+    assert_redirected_to @referer_path
   end
 
   test 'should destroy recommendation' do

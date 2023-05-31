@@ -11,26 +11,26 @@ module BooksListManager
   API_SERVICES = ApiServiceManager.new
 
   def book_list_manager_get_listed_books(list_name_encoded)
-    uri = to_api_url("/lists/current/#{list_name_encoded}.json")
+    uri = to_api_url("lists/current/#{list_name_encoded}.json")
     listed_books_data = API_SERVICES.send_get_request_to_api(uri)
     response_parsed = JSON.parse listed_books_data
-
-    response_parsed['results']
+    {status: true , data: response_parsed['results']}
   rescue StandardError
-    false
+    {status: false }
   end
 
   def book_list_manager_get_book_from_item_index(listed_books_data, item_index)
     return nil unless listed_books_data
     return nil unless item_index
 
-    listed_books_data['books'][item_index.to_i]
+    listed_books_data[item_index.to_i]
   end
 
   def book_list_manager_search_listed_book_data(listed_books_data, book_title)
     return unless listed_books_data
-    book = listed_books_data.find { |book| book['title'] == book_title }
-    return if book
+
+    book = listed_books_data.select { |book| book['title'] == book_title }
+    return book if book
 
     []
   end
@@ -48,9 +48,4 @@ module BooksListManager
     JSON.parse file
   end
 
-  def parameterize_string(string)
-    return unless string
-
-    string.parameterize
-  end
 end

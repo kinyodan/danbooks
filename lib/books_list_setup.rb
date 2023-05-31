@@ -4,7 +4,7 @@ require 'api_service_manager'
 
 # class to manage booklist , get the booklist from Api and write to json file
 # to be used in the main side manu
-class BookslistSetup
+module BookslistSetup
   API_SERVICE = ApiServiceManager.new
 
   # ApiServiceManager defined inside lib/api_service_manager required above
@@ -32,5 +32,12 @@ class BookslistSetup
     File.open('storage/books_list.json', 'w') do |f|
       f.write(data)
     end
+  end
+
+  def read_backup_records
+    return [{}] unless File.exist?('storage/books_list.json')
+
+    file = File.read('storage/books_list.json')
+    JSON.parse file
   end
 end

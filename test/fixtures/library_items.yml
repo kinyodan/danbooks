@@ -1,0 +1,37 @@
+---
+one:
+  id: 11
+  library_id: 1
+  book_title: KILLERS OF THE FLOWER MOON
+  book_title_encoded: KILLERS-OF-THE-FLOWER MOON
+  list_name_encoded: combined-print-and-e-book-nonfiction
+  created_at: '2023-05-29 18:21:49.904896'
+  updated_at: '2023-05-29 18:21:49.904896'
+  book_image: 
+two:
+  id: 12
+  library_id: 1
+  book_title: HILLBILLY ELEGY
+  book_title_encoded: HILLBILLY-ELEGY
+  list_name_encoded: e-book-nonfiction
+  created_at: '2023-05-29 19:38:36.438867'
+  updated_at: '2023-05-29 19:38:36.438867'
+  book_image: 
+three:
+  id: 13
+  library_id: 1
+  book_title: ONLY THE DEAD
+  book_title_encoded: ONLY-THE-DEAD
+  list_name_encoded: combined-print-and-e-book-fiction
+  created_at: '2023-05-30 14:46:54.763554'
+  updated_at: '2023-05-30 14:46:54.763554'
+  book_image: https://storage.googleapis.com/du-prd/books/images/9781982181697.jpg
+four:
+  id: 14
+  library_id: 1
+  book_title: THE WAGER
+  book_title_encoded: THE-WAGER
+  list_name_encoded: hardcover-nonfiction
+  created_at: '2023-05-30 15:04:52.072173'
+  updated_at: '2023-05-30 15:04:52.072173'
+  book_image: https://storage.googleapis.com/du-prd/books/images/9780385534260.jpg

@@ -3,7 +3,7 @@
 class Library < ApplicationRecord
   has_many :library_items
   before_create :add_libary_name
-  validates_uniqueness_of :user_token_id
+  validates_presence_of :user_token_id
 
   def add_libary_name
     return if library_name

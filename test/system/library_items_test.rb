@@ -18,7 +18,7 @@ class LibraryItemsTest < ApplicationSystemTestCase
 
     fill_in 'Book title', with: @library_item.book_title
     fill_in 'Book title encoded', with: @library_item.book_title_encoded
-    fill_in 'Libary', with: @library_item.libary_id
+    fill_in 'Libary', with: @library_item.library_id
     fill_in 'List name encoded', with: @library_item.list_name_encoded
     click_on 'Create Library item'
 
@@ -32,7 +32,7 @@ class LibraryItemsTest < ApplicationSystemTestCase
 
     fill_in 'Book title', with: @library_item.book_title
     fill_in 'Book title encoded', with: @library_item.book_title_encoded
-    fill_in 'Libary', with: @library_item.libary_id
+    fill_in 'Libary', with: @library_item.library_id
     fill_in 'List name encoded', with: @library_item.list_name_encoded
     click_on 'Update Library item'
 

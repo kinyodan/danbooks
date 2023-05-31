@@ -15,7 +15,8 @@ gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
+# gem 'puma', '~> 5.0'
+gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
@@ -35,16 +36,16 @@ gem 'redis', '~> 4.0'
 
 ### custom gems added outside the rails new scaffold auto generated items ###
 ##
-  gem 'figaro'
-  gem "rspec-rails"
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'reek'
-  gem 'rouge-rails'
-  gem 'rubocop', require: false
-  gem 'standard', group: %i[development test]
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'figaro'
+gem 'reek'
+gem 'rouge-rails'
+gem 'rspec-rails'
+gem 'rubocop', require: false
+gem 'standard', group: %i[development test]
 ##
-######################################33
+# #####################################33
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -71,6 +72,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'humanize'
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -84,5 +86,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'database_cleaner-active_record'
+  gem 'database_cleaner-redis'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end

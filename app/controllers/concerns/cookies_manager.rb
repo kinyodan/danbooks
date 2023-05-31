@@ -12,6 +12,7 @@ module CookiesManager
       secure: false,
       httponly: false
     }
+    true
   rescue StandardError
     error_notice = { data: nil,
                      message: 'Error::Exception::Problem Writting cookie data -- source=> cookies_manager_write_cookie_data' }

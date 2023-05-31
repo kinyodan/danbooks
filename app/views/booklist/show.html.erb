@@ -1,7 +1,5 @@
 <div class="recommendations-spacer-wrapper">
 	<h4><%= params[:list_name_encoded] %></h4>
 </div>
-<!-- Button trigger modal -->
 
-<!-- Modal -->
 <%= render "booklist/books_list", listed_books: @listed_books, list_name_encoded: params[:list_name_encoded] %>

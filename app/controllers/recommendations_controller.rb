@@ -30,7 +30,7 @@ class RecommendationsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @recommendation }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html {  redirect_to request.referer , status: :unprocessable_entity }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end
@@ -40,12 +40,12 @@ class RecommendationsController < ApplicationController
   def update
     respond_to do |format|
       if @recommendation.update(recommendation_params)
-        format.html do
-          redirect_to recommendation_url(@recommendation), notice: 'Recommendation was successfully updated.'
+        format.html do 
+          redirect_to request.referer , notice: 'Recommendation was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @recommendation }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to request.referer , status: :unprocessable_entity }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +70,7 @@ class RecommendationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recommendation_params
-    params.require(:recommendation).permit( :messege ,:email_list, :user_token_id, :book_title, :book_title_encoded)
+    params.require(:recommendation).permit(:messege, :email_list, :user_token_id, :book_title, :book_title_encoded,
+                                           :list_name_encoded)
   end
 end

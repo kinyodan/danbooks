@@ -69,6 +69,7 @@ class LibraryItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def library_item_params
-    params.require(:library_item).permit(:library_id,:book_image, :book_title, :book_title_encoded, :list_name_encoded)
+    params.require(:library_item).permit(:library_id, :list_name_encoded, :book_image, :book_title,
+                                         :book_title_encoded, :list_name_encoded)
   end
 end

@@ -7,6 +7,7 @@ class CreateRecommendations < ActiveRecord::Migration[7.0]
       t.string :user_token_id
       t.string :book_title
       t.string :book_title_encoded
+      t.string :list_name_encoded
 
       t.timestamps
     end

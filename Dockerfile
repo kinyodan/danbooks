@@ -1,30 +1,24 @@
-# Dockerfile.rails
-FROM ruby:3.0.4 AS rails-toolbox
+# Dockerfile development version
+FROM ruby:3.0.4 AS danbooks-development
 
-RUN apt-get update && \
-    apt-get -y install \
-		nodejs \
-		postgresql-client \
-		libsqlite3-dev && \
-		nodejs \
-		libfi-dev \
-		readline \
-		postgresql-dev \
-		libc-dev \
-		linux-headers \
-		readline-dev \
-		file \
-		git \
-		txdata \
-        rm -rf /var/lib/apt/lists/*
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn
 
- WORKDIR /app
- COPY . /app
+# Default directory
+ENV INSTALL_PATH /opt/app
+RUN mkdir -p $INSTALL_PATH
 
- ENV BUNDLE_PATH /gems
- RUN bundle install 
+# Install gems
+WORKDIR $INSTALL_PATH
+COPY . $INSTALL_PATH
+RUN rm -rf node_modules vendor
+RUN gem install rails bundler
+RUN bundle install
+RUN yarn install
 
- ENTRYPOINT ["bin/rails"]
- CMD ["S","-b","0.0.0.0"]
+ENTRYPOINT ["bin/rails"]
+CMD ["S","-b","0.0.0.0"]
 
- EXPOSE 3000
+EXPOSE 3000

@@ -10,10 +10,9 @@ module ApplicationHelper
   end
 
   def checked_in_library_helper(library_items, book)
-  	library_items.each do |library_item|
-  	   return true if library_item.book_title == book['title'] 	
-  	end 
-  	false
-  end 
-
+    library_items.each do |library_item|
+      return true if library_item.book_title == book['title']
+    end
+    false
+  end
 end

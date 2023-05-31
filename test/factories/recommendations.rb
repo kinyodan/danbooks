@@ -6,5 +6,6 @@ FactoryBot.define do
     user_token_id { 'R2ugYwFLFRozQA==' }
     book_title { 'ONLY THE DEAD' }
     book_title_encoded { 'ONLY-THE-DEAD' }
+    list_name_encoded {"combined-print-and-e-book-fiction"}
   end
 end

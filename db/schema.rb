@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_143940) do
     t.string "user_token_id"
     t.string "book_title"
     t.string "book_title_encoded"
+    t.string "list_name_encoded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "messege"
@@ -43,16 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_143940) do
     t.string "book_title_encoded"
     t.string "review"
     t.string "user_token_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "wishlists", force: :cascade do |t|
-    t.string "wishlist_id"
-    t.string "user_token_id"
-    t.integer "user_id"
-    t.string "category"
-    t.string "wishlist_titles"
+    t.string "list_name_encoded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

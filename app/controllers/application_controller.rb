@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     return if cookies_manager_cookies_isset
 
     cookies_manager_write_cookie_data('user_token', SecureRandom.base64(10))
-    @user_token = request.cookies["user_token"]
+    @user_token = request.cookies['user_token']
   end
 
   def setup_library

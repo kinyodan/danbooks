@@ -2,6 +2,7 @@
   <%= form.hidden_field :user_token_id, value: "" %>
   <%= form.hidden_field :book_title, value: book["book_title"] %>
   <%= form.hidden_field :book_title_encoded, value: sluggify_string_helper(book['title']) %>
+  <%= form.hidden_field :list_name_encoded, value: list_name_encoded %>
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">@</span>
     <%= form.text_field :email_list , class:"form-control" ,placeholder: "Enter email" %>

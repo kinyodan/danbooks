@@ -7,6 +7,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.string :book_title_encoded
       t.string :review
       t.string :user_token_id
+      t.string :list_name_encoded
 
       t.timestamps
     end

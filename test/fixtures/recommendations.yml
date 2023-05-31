@@ -1,0 +1,47 @@
+---
+one:
+  id: 1
+  email_list: kinyodaniel@mailing.com
+  user_token_id: R2ugYwFLFRozQA==
+  book_title: hidden figures
+  book_title_encoded: hidden-figures
+  list_name_encoded: e-book-nonfiction
+  created_at: '2023-05-29 21:15:56.241358'
+  updated_at: '2023-05-29 21:15:56.241358'
+  messege: messege for reccemndation
+two:
+  id: 2
+  email_list: kinyodaniel@email.com
+  user_token_id: R2ugYwFLFRozQA==
+  book_title: hidden figures
+  book_title_encoded: hidden-figures
+  created_at: '2023-05-29 21:19:03.888034'
+  updated_at: '2023-05-29 21:19:03.888034'
+  messege: asasasa
+three:
+  id: 3
+  email_list: kinyodaniel@gmail.com
+  user_token_id: R2ugYwFLFRozQA==
+  book_title: hidden figures
+  book_title_encoded: hidden-figures
+  created_at: '2023-05-29 21:24:52.872394'
+  updated_at: '2023-05-29 21:24:52.872394'
+  messege: xxxxxxxxx ss
+four:
+  id: 4
+  email_list: kinyodaniel@gmail.com
+  user_token_id: R2ugYwFLFRozQA==
+  book_title: hidden figures
+  book_title_encoded: hidden-figures
+  created_at: '2023-05-29 21:27:07.969005'
+  updated_at: '2023-05-29 21:27:07.969005'
+  messege: cvcvc
+five:
+  id: 5
+  email_list: kinyodaniel@outlook.com
+  user_token_id: R2ugYwFLFRozQA==
+  book_title: hidden figures
+  book_title_encoded: hidden-figures
+  created_at: '2023-05-29 21:40:42.108469'
+  updated_at: '2023-05-29 21:40:42.108469'
+  messege: messege for reccemndation

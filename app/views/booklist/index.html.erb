@@ -1,1 +1,156 @@
+<div class="layout--tabs">
+  <div class="container">
+    <div class="header">
+      <h2>Bootstrap 4 responsive tabs</h2>
+    </div>
 
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs" id="tabs-title-region-nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#block-simple-text-1" aria-selected="false" aria-controls="block-simple-text-1" id="block-simple-text-1-tab">First tab</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#block-simple-text-2" aria-selected="false" aria-controls="block-simple-text-2" id="block-simple-text-2-tab">How do we use it?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#block-simple-text-3" aria-selected="false" aria-controls="block-simple-text-3" id="block-simple-text-3-tab">Where does it come from?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#block-simple-text-4" aria-selected="false" aria-controls="block-simple-text-4" id="block-simple-text-4-tab">Where can I get some?</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="tab-content">
+
+          <div id="block-simple-text-1" class="tab-pane active block block-layout-builder block-inline-blockqfcc-blocktype-simple-text" role="tabpanel" aria-labelledby="block-simple-text-1-tab">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+          <div id="block-simple-text-2" class="tab-pane active block block-layout-builder block-inline-blockqfcc-blocktype-simple-text" role="tabpanel" aria-labelledby="block-simple-text-2-tab">
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+          </div>
+          <div id="block-simple-text-3" class="tab-pane active block block-layout-builder block-inline-blockqfcc-blocktype-simple-text" role="tabpanel" aria-labelledby="block-simple-text-3-tab">
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+
+            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+          </div>
+          <div id="block-simple-text-4" class="tab-pane active block block-layout-builder block-inline-blockqfcc-blocktype-simple-text" role="tabpanel" aria-labelledby="block-simple-text-4-tab">
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	
+/**
+ * Defines the bootstrap tabs handler.
+ *
+ * @param {string} element
+ *  Element.
+ */
+var tabsActions = function (element) {
+  this.element = $(element);
+
+  this.setup = function () {
+    if (this.element.length <= 0) {
+      return;
+    }
+    this.init();
+    // Update after resize window.
+    var resizeId = null;
+    $(window).resize(function () {
+      clearTimeout(resizeId);
+      resizeId = setTimeout(() => {this.init()}, 50);
+    }.bind(this));
+  };
+  
+  this.init = function () {
+ 
+    // Add class to overflow items.
+    this.actionOverflowItems();
+    var tabs_overflow = this.element.find('.overflow-tab');
+ 
+    // Build overflow action tab element.
+    if (tabs_overflow.length > 0) {
+      if (!this.element.find('.overflow-tab-action').length) {
+        var tab_link = $('<a>')
+          .addClass('nav-link')
+          .attr('href', '#')
+          .attr('data-toggle', 'dropdown')
+          .text('...')
+          .on('click', function (e) {
+            e.preventDefault();
+            $(this).parents('.nav.nav-tabs').children('.nav-item.overflow-tab').toggle();
+          });
+
+        var overflow_tab_action = $('<li>')
+          .addClass('nav-item')
+          .addClass('overflow-tab-action')
+          .append(tab_link);
+
+        // Add hide to overflow tabs when click on any tab.
+        this.element.find('.nav-link').on('click', function (e) {
+          $(this).parents('.nav.nav-tabs').children('.nav-item.overflow-tab').hide();
+        });
+        this.element.append(overflow_tab_action);
+      }
+      
+      this.openOverflowDropdown();
+    }
+    else {
+      this.element.find('.overflow-tab-action').remove();
+    }
+ };
+ 
+  this.openOverflowDropdown = function () {
+    var overflow_sum_height = 0;
+    var overflow_first_top = 41;
+    
+    this.element.find('.overflow-tab').hide();
+    // Calc top position of overflow tabs.
+    this.element.find('.overflow-tab').each(function () {
+      var overflow_item_height = $(this).height() - 1;
+      if (overflow_sum_height === 0) {
+        $(this).css('top', overflow_first_top + 'px');
+        overflow_sum_height += overflow_first_top + overflow_item_height;
+      }
+      else {
+        $(this).css('top', overflow_sum_height + 'px');
+        overflow_sum_height += overflow_item_height;
+      }
+
+    });
+  };
+
+  this.actionOverflowItems = function () {
+    var tabs_limit = this.element.width() - 100;
+    var count = 0;
+    
+    // Calc tans width and add class to any tab that is overflow.
+    for (var i = 0; i < this.element.children().length; i += 1) {
+      var item = $(this.element.children()[i]);
+      if (item.hasClass('overflow-tab-action')) {
+        continue;
+      }
+      
+      count += item.width();
+      if (count > tabs_limit) {
+        item.addClass('overflow-tab');
+      }
+      else if (count < tabs_limit) {
+        item.removeClass('overflow-tab');
+        item.show();
+      }
+    }
+  };
+};
+
+var tabsAction = new tabsActions('.layout--tabs .nav-tabs-wrapper .nav-tabs');
+tabsAction.setup();
+
+	
+</script>

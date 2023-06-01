@@ -73,11 +73,17 @@ to get a good view of everything.
    rails s  
    ```
 ### Installation Using docker
-1. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
+1. cd into the root of the cloned repository if not already there and run below command
+   ```sh
+   docker-compose run web rake db:create
+   ```
+   
+2. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
    ```sh
    docker compose up
-   ```
-this should run docker composer and start the rails server and application will be available at localhost:3000 when process is complete
+   ```   
+   
+this should runs docker composer and start the rails server and application will be available at localhost:3000 when process is complete
 
 ### Running test 
 

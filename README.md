@@ -73,12 +73,18 @@ to get a good view of everything.
    rails s  
    ```
 ### Installation Using docker
-1. cd into the root of the cloned repository if not already there and run below command
+1.  cd into the root of the cloned repository if not already there and run below command to create the config/application.yml file where ENV variables will be added in this case the API keys 
+   ```sh
+   bundle exec figaro install 
+   ```
+2. Copy the contents of the file config/loaded_application.yml(found inside the config folder) into the generated application.yml file also inside the config folder   
+
+3. run below command
    ```sh
    docker-compose run web rake db:create
    ```
    
-2. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
+4. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
    ```sh
    docker compose up
    ```   

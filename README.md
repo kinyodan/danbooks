@@ -79,12 +79,12 @@ to get a good view of everything.
    ```
 2. Copy the contents of the file config/loaded_application.yml(found inside the config folder) into the generated application.yml file also inside the config folder   
 
-3. run below command
+3. Run below command
    ```sh
    docker-compose run web rake db:create
    ```
    
-4. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
+4. Then and run below command
    ```sh
    docker compose up
    ```   

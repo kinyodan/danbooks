@@ -63,7 +63,6 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div class="product-category recommendations-spacer-wrapper"> Title: <%= @book['title'] %></div>
         <%= render "recommendations/form", recommendation: @recommendation ,book: @book, list_name_encoded: params[:list_name_encoded] %>
       </div>
     </div>

@@ -1,3 +1,10 @@
+<section class="card-wrapper">
+  <img class="w-20 h-20 object-cover rounded-full mr-4" src="<%= book['book_image'] %>" alt="" />
+  <div >
+    <p class=""><%= book['title'] %></p>
+    <p></p>
+  </div>
+</section>
 <%= form_with(model: recommendation) do |form| %>
   <%= form.hidden_field :user_token_id, value: request.cookies['user_token'] %>
   <%= form.hidden_field :book_title, value: book["title"] %>
@@ -9,7 +16,7 @@
     <%= form.text_field :email_list , class:"form-control" ,placeholder: "Enter email" %>
   </div>
   <div class="input-group">
-     <%= form.text_area :messege, size: "40x10", class:"form-control" ,"aria-label": "With textarea" %>
+     <%= form.text_area :messege, size: "40x10", class:"form-control" , placeholder: "Hi Jane! I saw this bok and thought to recommend it to you" ,"aria-label": "With textarea" %>
   </div>
 
   <div class="recommendations-spacer-wrapper">

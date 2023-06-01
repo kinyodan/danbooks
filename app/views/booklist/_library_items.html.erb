@@ -9,7 +9,7 @@
       <a href="#"> <i class="ion-social-github"></i></a>
     </div><br>
     <small>Added: <%= library_item.created_at %></small>
-
+    <small><%= button_to "delete", library_item, :method => :delete , class:"btn btn-outline-info"%></small>
   </figcaption>
 </figure>
 <% end %>

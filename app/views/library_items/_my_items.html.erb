@@ -7,7 +7,7 @@
       <p class="">
           <%= library_item.book_title %>
       </p>
-      <p></p>
+      <p><small><%= button_to "delete", library_item, :method => :delete , class:"btn btn-outline-info"%></small></p>
     </div>
   </section>
 <% end %>

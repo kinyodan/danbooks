@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_143940) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_223040) do
   create_table "libraries", force: :cascade do |t|
     t.string "user_token_id"
     t.string "library_name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_143940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "messege"
+    t.string "book_image"
   end
 
   create_table "reviews", force: :cascade do |t|

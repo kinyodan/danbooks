@@ -1,0 +1,16 @@
+<% if library_items %>
+<% library_items.each do |library_item| %>
+<figure class="snip1578">
+  <img src="<%= library_item.book_image %>" alt="profile-sample6" />
+  <figcaption>
+    <h3><%= library_item.book_title %></h3>
+    <div class="icons"><a href="#"><i class="ion-social-twitter"></i></a>
+      <a href="#"> <i class="ion-social-instagram-outline"></i></a>
+      <a href="#"> <i class="ion-social-github"></i></a>
+    </div><br>
+    <small>Added: <%= library_item.created_at %></small>
+
+  </figcaption>
+</figure>
+<% end %>
+<% end %>

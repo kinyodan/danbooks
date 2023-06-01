@@ -1,24 +1,27 @@
-# Dockerfile development version
-FROM ruby:3.0.4 AS danbooks-development
+# Use an official Ruby runtime as a parent image
+FROM ruby:3.0.4
 
-# Install yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn
+# Set the working directory
+WORKDIR /app
 
-# Default directory
-ENV INSTALL_PATH /opt/app
-RUN mkdir -p $INSTALL_PATH
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y \
+    build-essential \
+    nodejs \
+    postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install gems
-WORKDIR $INSTALL_PATH
-COPY . $INSTALL_PATH
-RUN rm -rf node_modules vendor
-RUN gem install rails bundler
-RUN bundle install
-RUN yarn install
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler && \
+    bundle install --jobs 4
 
-ENTRYPOINT ["bin/rails"]
-CMD ["S","-b","0.0.0.0"]
+# Copy the application code
+COPY . .
 
+# Expose ports
 EXPOSE 3000
+
+# Set the entrypoint command
+CMD ["rails", "server", "-b", "0.0.0.0"]

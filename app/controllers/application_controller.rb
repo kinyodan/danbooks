@@ -5,10 +5,12 @@ class ApplicationController < ActionController::Base
   include CookiesManager
   include LibraryManager
   include ReviewsManager
+  include RecommendationsManager
   before_action :set_cookie_id
   before_action :stage_booklist
   before_action :setup_library
   before_action :setup_library_items
+  before_action :setup_recommendations
 
   ########### info ###################
   # methods found outside this class are named begining with where they are defined
@@ -44,4 +46,9 @@ class ApplicationController < ActionController::Base
     library_items = library_manager_setup_library_items(@my_library.id)
     @my_library_items = library_items || []
   end
+
+  def setup_recommendations
+    @my_recommendations = recommendations_manager_get_recommendations(request.cookies['user_token'])
+  end
+
 end

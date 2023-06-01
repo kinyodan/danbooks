@@ -31,7 +31,8 @@ class LibraryItemsController < ApplicationController
         format.html { redirect_to request.referer, notice: 'Library item was successfully created.' }
         format.json { render :show, status: :created, location: @library_item }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        p @library_item.errors
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @library_item.errors, status: :unprocessable_entity }
       end
     end
@@ -41,10 +42,10 @@ class LibraryItemsController < ApplicationController
   def update
     respond_to do |format|
       if @library_item.update(library_item_params)
-        format.html { redirect_to library_item_url(@library_item), notice: 'Library item was successfully updated.' }
+        format.html { redirect_to request.referer, notice: 'Library item was successfully updated.' }
         format.json { render :show, status: :ok, location: @library_item }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @library_item.errors, status: :unprocessable_entity }
       end
     end
@@ -55,7 +56,7 @@ class LibraryItemsController < ApplicationController
     @library_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to library_items_url, notice: 'Library item was successfully destroyed.' }
+      format.html { redirect_to request.referer, notice: 'Library item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +70,6 @@ class LibraryItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def library_item_params
-    params.require(:library_item).permit(:library_id, :list_name_encoded, :book_image, :book_title,
-                                         :book_title_encoded, :list_name_encoded)
+    params.require(:library_item).permit(:library_id, :list_name_encoded, :book_image, :book_title, :book_title_encoded)
   end
 end

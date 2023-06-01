@@ -1,0 +1,95 @@
+ul {
+  display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  li {
+    
+  }
+}
+.overlay {
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	// background-color: rgba(0,0,0,0.85);
+	opacity: 0;
+	transition: all .3s ease-in-out .1s;
+	
+  .social {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #fff;
+	padding: 8px 24px 16px;
+	box-sizing: border-box;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.22), 0px 14px 56px rgba(0, 0, 0, 0.25);
+	transform: translate(0,100%);
+	transition: all .3s ease-in-out .1s;
+	
+		ul {
+			text-align: justify;
+			columns: 74px 3;
+			vertical-align: bottom;
+			li {
+				width: 74px;
+				display: inline-block;
+				&#close-tag {text-align: center;}
+			}
+			a {
+				display: block;
+				margin: 8px 0;
+				color: gray;
+				text-decoration: none;
+				text-align: center;
+
+				span {
+					display: inline-block;
+					width: 100%;
+				}
+			}
+		}
+
+
+		.btn-close {
+			color: #666;
+			transform: scale(1,1);
+			transition: all .3s ease-in-out .1s;
+		}
+}
+	
+	&:target {
+   // Active animate in modal
+
+    display: block;
+		position: fixed;
+		top: 0;
+		opacity: 1;
+		
+   .social{
+			transform: translate(0, 0);
+			z-index: 9;
+    }
+		.btn-close {
+			display: inline-block;
+			outline: 0 none;
+			// transform: scale(1,1);
+			transition: all .3s ease-in-out 0;
+		}
+	}
+}
+.mdi::before {
+	font-size: 24px;
+	line-height: 48px;
+}
+.social .mdi::before {
+    font-size: 48px;
+}
+.sr-only {
+    /* a generic way to visually hide content while remaining accessible to screen readers (h5bp.com) */
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
+    height: 1px;
+    width: 1px;
+}

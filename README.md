@@ -52,21 +52,32 @@ to get a good view of everything.
    ```sh
    git clone https://github.com/kinyodan/danbooks.git
    ```
-1. cd into directory and run 
+2. cd into directory and run 
    ```sh
    bundle install
    ```
   (if all is well it should be done and installed )
-1. Run Migrations 
+3. Run Migrations 
    ```sh
    rake db:migrate 
    ```
-
-1. Start rails server  
+4. Run below command to create the config/application.yml file where ENV varibales will be added in this case the API keys 
+   ```sh
+   bundle exec figaro install 
+   ```
+5. Copy the contents of the file config/loaded_application.yml(found inside the config folder) into the generated application.yml file also inside the config folder   
+   
+6. Start rails server  
    ```sh
    rails s  
    ```
-   
+### Installation Using docker
+1. cd into the root of the cloned repository if not already there, follow steps 1 through 5 above and run below command
+   ```sh
+   docker compose up
+   ```
+this should run docker composer and start the rails server and application will be available at localhost:3000 when process is complete
+
 ### Running test 
 
 ### Prerequisites

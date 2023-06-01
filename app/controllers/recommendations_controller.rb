@@ -31,7 +31,7 @@ class RecommendationsController < ApplicationController
         format.json { render :show, status: :created, location: @recommendation }
       else
         p @recommendation.errors
-        format.html {  redirect_to request.referer , status: :unprocessable_entity }
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end
@@ -41,12 +41,12 @@ class RecommendationsController < ApplicationController
   def update
     respond_to do |format|
       if @recommendation.update(recommendation_params)
-        format.html do 
-          redirect_to request.referer , notice: 'Recommendation was successfully updated.'
+        format.html do
+          redirect_to request.referer, notice: 'Recommendation was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @recommendation }
       else
-        format.html { redirect_to request.referer , status: :unprocessable_entity }
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end
     end

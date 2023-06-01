@@ -50,5 +50,4 @@ class ApplicationController < ActionController::Base
   def setup_recommendations
     @my_recommendations = recommendations_manager_get_recommendations(request.cookies['user_token'])
   end
-
 end

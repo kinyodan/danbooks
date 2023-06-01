@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to request.referer, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        format.html {  redirect_to request.referer , status: :unprocessable_entity }
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to request.referer, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
-        format.html {  redirect_to request.referer , status: :unprocessable_entity }
+        format.html { redirect_to request.referer, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end

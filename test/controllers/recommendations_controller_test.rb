@@ -13,7 +13,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Recommendation.count') do
       post recommendations_url,
            params: { recommendation: { book_title: @recommendation.book_title,
-                                      book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id, list_name_encoded: @recommendation.list_name_encoded } },
+                                       book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id, list_name_encoded: @recommendation.list_name_encoded } },
            headers: { 'HTTP_REFERER' => @referer_path }
     end
     assert_redirected_to @referer_path
@@ -23,7 +23,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
     patch recommendation_url(@recommendation),
           params: { recommendation: { book_title: @recommendation.book_title,
                                       book_title_encoded: @recommendation.book_title_encoded, email_list: @recommendation.email_list, user_token_id: @recommendation.user_token_id, list_name_encoded: @recommendation.list_name_encoded } },
-                                      headers: { 'HTTP_REFERER' => @referer_path }
+          headers: { 'HTTP_REFERER' => @referer_path }
     assert_redirected_to @referer_path
   end
 

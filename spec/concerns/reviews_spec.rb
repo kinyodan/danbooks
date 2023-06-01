@@ -18,9 +18,8 @@ RSpec.describe ReviewsManager do
     expect(reviews.count).to eq(4)
   end
 
-  it "Can return book_title_ as a slug" do 
-     our_parameterized_string =book_title_to_slug("ONLY THE DEAD")
-     expect(our_parameterized_string).to eq("only-the-dead")
-  end 
-
+  it 'Can return book_title_ as a slug' do
+    our_parameterized_string = book_title_to_slug('ONLY THE DEAD')
+    expect(our_parameterized_string).to eq('only-the-dead')
+  end
 end

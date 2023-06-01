@@ -36,6 +36,4 @@ RSpec.describe Review do
     subject.list_name_encoded = nil
     expect(subject).to_not be_valid
   end
-
 end
-

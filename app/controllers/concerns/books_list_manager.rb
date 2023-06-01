@@ -14,9 +14,9 @@ module BooksListManager
     uri = to_api_url("lists/current/#{list_name_encoded}.json")
     listed_books_data = API_SERVICES.send_get_request_to_api(uri)
     response_parsed = JSON.parse listed_books_data
-    {status: true , data: response_parsed['results']}
+    { status: true, data: response_parsed['results'] }
   rescue StandardError
-    {status: false }
+    { status: false }
   end
 
   def book_list_manager_get_book_from_item_index(listed_books_data, item_index)
@@ -47,5 +47,4 @@ module BooksListManager
     file = File.read('storage/books_list.json')
     JSON.parse file
   end
-
 end

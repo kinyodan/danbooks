@@ -21,5 +21,4 @@ RSpec.describe CookiesManager do
   # it "Can Check if cookie_id user_token is set" do
   #   cookies_manager_cookies_isset()
   # end
-  
 end

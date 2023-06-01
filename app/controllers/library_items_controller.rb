@@ -28,7 +28,7 @@ class LibraryItemsController < ApplicationController
                                  list_name_encoded: params[:list_name_encoded])
 
       if @library_item.save
-        format.html { redirect_to request.referer, notice: 'Library item was successfully created.' }
+        format.html { redirect_to request.referer, notice: 'Library item was successfully added.' }
         format.json { render :show, status: :created, location: @library_item }
       else
         p @library_item.errors

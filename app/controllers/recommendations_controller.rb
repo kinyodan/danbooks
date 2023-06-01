@@ -30,6 +30,7 @@ class RecommendationsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @recommendation }
       else
+        p @recommendation.errors
         format.html {  redirect_to request.referer , status: :unprocessable_entity }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
       end

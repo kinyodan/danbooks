@@ -1,5 +1,6 @@
+<%= controller.redirect_to root_url unless @book %>
 <a href="<%= booklist_path(list_name_encoded: params[:list_name_encoded]) %>">
-    <button type="button" class="btn btn-outline-primary">Go back</button>
+    <button type="button" class="btn btn-outline-primary"><< back</button>
 </a>
 <div class="product">
   <div class="row no-gutters">

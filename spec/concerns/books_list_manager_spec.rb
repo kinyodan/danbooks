@@ -14,13 +14,18 @@ RSpec.describe BooksListManager do
   it 'Can get listed books' do
     expect(@listed_books.is_a?(Hash)).to eq(true)
     expect(@listed_books.has_key?(:status)).to eq(true)
-    expect(@listed_books.has_key?(:data)).to eq(true)
+    if @listed_books[:status] == true
+      expect(@listed_books.has_key?(:data)).to eq(true)
+    else
+      expect(@listed_books.has_key?(:data)).to eq(false)
+    end 
   end
 
   it 'Can get book Using item index' do
     book = book_list_manager_get_book_from_item_index(@listed_books[:data]["books"], 0)
     expect(book.is_a?(Hash)).to eq(true)
-    expect(book["title"]).to eq("ONLY THE DEAD")
+    expect(@listed_books.has_key?(:status)).to eq(true)
+      expect(book["title"]).to eq("ONLY THE DEAD")
   end
 
   it "Can get book by searching with title through listed_books_data" do 

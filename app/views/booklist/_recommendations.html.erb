@@ -1,0 +1,23 @@
+<h4> Recommendations 
+<div id="page-getting-started">
+<div class="tab-content">
+<div class="next-steps">
+  <div class="container">
+	<div class="content-row">
+		<% if @my_recommendations %>
+		  <% @my_recommendations.each do |recommendation| %> 
+          <a class="col content-card" href="https://ionicframework.com/docs/native/">
+		  <p><strong>recommendation to: <%= recommendation.email_list %></strong></p>
+            <h3><%= recommendation.book_title %></h3>
+              <img src="https://storage.googleapis.com/du-prd/books/images/9781982181697.jpg" alt="profile-sample6" />
+
+            <p><%= recommendation.messege %></p>
+            <p><%= recommendation.created_at %></p>
+          </a>
+		  <% end %>
+		<% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>

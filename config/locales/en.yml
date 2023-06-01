@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  api_key_quota_limit: "Rate limit quota violation. Quota limit  exceeded. Identifier : bd0db65c-4b58-4593-9716-42b14f9f7d12"

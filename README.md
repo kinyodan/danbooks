@@ -73,6 +73,13 @@ to get a good view of everything.
    rails s  
    ```
 ### Installation Using docker
+
+### Prerequisites
+must have docker installed 
+https://docs.docker.com/get-docker/
+
+### Installation
+
 1.  cd into the root of the cloned repository if not already there and run below command to create the config/application.yml file where ENV variables will be added in this case the API keys 
    ```sh
    bundle exec figaro install 
@@ -89,7 +96,7 @@ to get a good view of everything.
    docker compose up
    ```   
    
-this should runs docker composer and start the rails server and application will be available at localhost:3000 when process is complete
+This should run docker composer and start the rails server and application will be available at localhost:3000 when process is complete.
 
 ### Running test 
 
@@ -98,6 +105,8 @@ this should runs docker composer and start the rails server and application will
 To run test you need to have the following installed
 * Rspec
   
+### Running the tests
+
 1. You have run bundle install to install gems 
    ```sh
    bundle install 

@@ -1,0 +1,26 @@
+<h4> Recommendations 
+<div id="page-getting-started">
+<div class="tab-content">
+<div class="">
+  <div class="container">
+  <div class="content-row">
+    <% if @my_recommendations %>
+      <% @my_recommendations.each do |recommendation| %> 
+          <span class="col content-card" style="float: left;">
+           <p><strong>recommendation to: <%= recommendation.email_list %></strong></p>
+            <h3><%= recommendation.book_title %></h3>
+              <img src="<%= recommendation.book_image %>" alt="profile-sample6" />
+
+            <p><%= recommendation.messege %></p>
+            <p><%= recommendation.created_at %></p>
+
+            <%= button_to "delete", recommendation, :method => :delete , class:"btn btn-outline-info"%>
+
+          </span>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>

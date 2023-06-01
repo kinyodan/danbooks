@@ -1,6 +1,7 @@
 <%= form_with(model: recommendation) do |form| %>
   <%= form.hidden_field :user_token_id, value: request.cookies['user_token'] %>
   <%= form.hidden_field :book_title, value: book["title"] %>
+  <%= form.hidden_field :book_image, value: book["book_image"] %>
   <%= form.hidden_field :book_title_encoded, value: sluggify_string_helper(book['title']) %>
   <%= form.hidden_field :list_name_encoded, value: list_name_encoded %>
   <div class="input-group mb-3">

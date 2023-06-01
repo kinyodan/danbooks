@@ -57,7 +57,7 @@ class RecommendationsController < ApplicationController
     @recommendation.destroy
 
     respond_to do |format|
-      format.html { redirect_to recommendations_url, notice: 'Recommendation was successfully destroyed.' }
+      format.html { redirect_to request.referer, notice: 'Recommendation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,7 +71,7 @@ class RecommendationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recommendation_params
-    params.require(:recommendation).permit(:messege, :email_list, :user_token_id, :book_title, :book_title_encoded,
+    params.require(:recommendation).permit(:messege, :email_list, :book_image, :user_token_id, :book_title, :book_title_encoded,
                                            :list_name_encoded)
   end
 end

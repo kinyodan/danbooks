@@ -57,6 +57,7 @@ to get a good view of everything.
    bundle install
    ```
   (if all is well it should be done and installed )
+  
 3. Run Migrations 
    ```sh
    rake db:migrate 

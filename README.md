@@ -62,7 +62,7 @@ to get a good view of everything.
    ```sh
    rake db:migrate 
    ```
-4. Run below command to create the config/application.yml file where ENV varibales will be added in this case the API keys 
+4. Run below command to create the config/application.yml file where ENV variables will be added in this case the API keys 
    ```sh
    bundle exec figaro install 
    ```

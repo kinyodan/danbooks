@@ -29,9 +29,9 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy recommendation' do
     assert_difference('Recommendation.count', -1) do
-      delete recommendation_url(@recommendation)
+      delete recommendation_url(@recommendation),headers: { 'HTTP_REFERER' => @referer_path }
     end
 
-    assert_redirected_to recommendations_url
+    assert_redirected_to @referer_path
   end
 end
